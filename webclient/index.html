@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>NeuroCare — Live</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { color-scheme: light dark; }
+    *{box-sizing:border-box}
+    body{ margin:0; padding:32px; font-family: ui-sans-serif, system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      background:#0f0f10; color:#f4f6f8; }
+    .wrap{max-width:880px; margin:0 auto}
+    h1{font-size:40px; margin:0 0 18px; font-weight:800}
+    .row{display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:14px}
+    button{padding:12px 16px; border-radius:12px; border:1px solid #30343a; background:#1e1f24; color:#fff; font-weight:700; cursor:pointer}
+    button[disabled]{opacity:.45; cursor:not-allowed}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:#202228; border:1px solid #2f3340; font-weight:700}
+    .dot{width:8px; height:8px; border-radius:50%; background:#666}
+    .ok .dot{background:#17c964} .warn .dot{background:#f5a524} .err .dot{background:#f31260}
+    .card{background:#17181b; border:1px solid #26282c; border-radius:16px; padding:16px}
+    #replyBubble{min-height:56px; line-height:1.5}
+    canvas{width:100%; height:56px; background:#0c0d0f; border:1px solid #26282c; border-radius:10px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>NeuroCare — Live</h1>
+
+    <div class="row">
+      <button id="startBtn">🎙️ Start</button>
+      <button id="stopBtn" disabled>■ Stop</button>
+      <span id="micBadge" class="badge warn"><span class="dot"></span>Mic</span>
+      <span id="prosodyBadge" class="badge"><span class="dot"></span>Prosody</span>
+      <span id="fusionBadge" class="badge"><span class="dot"></span>Wearables</span>
+      <span id="orchBadge" class="badge"><span class="dot"></span>Orchestrator</span>
+      <span class="badge"><span class="dot"></span><strong id="agentSpeaking">No</strong></span>
+    </div>
+
+    <div class="row card">
+      <div style="flex:1">
+        <div style="opacity:.7; margin-bottom:8px">Input level</div>
+        <canvas id="vu"></canvas>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <div style="opacity:.7; margin-bottom:8px">Last reply</div>
+      <div id="replyBubble">—</div>
+    </div>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

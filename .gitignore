@@ -1,0 +1,10 @@
+# Node.js / frontend projects
+node_modules/
+dist/
+build/
+.env
+.venv
+*.log
+
+# macOS / system
+.DS_Store
